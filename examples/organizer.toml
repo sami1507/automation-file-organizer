@@ -1,0 +1,39 @@
+# Example rules for a Downloads folder.
+# Rules are checked in order and the first match wins. Files that match nothing
+# stay where they are unless a fallback folder is set.
+
+fallback = "Unsorted"
+
+# Partial downloads are never touched.
+ignore_suffixes = [".crdownload", ".part", ".tmp"]
+
+[[rule]]
+name = "Invoices"
+pattern = "*invoice*"
+destination = "Finance/Invoices"
+
+[[rule]]
+name = "Images"
+extensions = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".heic"]
+destination = "Media/Images"
+
+[[rule]]
+name = "Video"
+extensions = [".mp4", ".mov", ".mkv"]
+destination = "Media/Video"
+
+[[rule]]
+name = "Documents"
+extensions = [".pdf", ".docx", ".xlsx", ".pptx", ".txt", ".md"]
+destination = "Documents"
+
+[[rule]]
+name = "Old installers"
+extensions = [".exe", ".msi"]
+older_than_days = 30
+destination = "Archive/Installers"
+
+[[rule]]
+name = "Archives"
+extensions = [".zip", ".7z", ".rar", ".tar", ".gz"]
+destination = "Archive/Compressed"
